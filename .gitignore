@@ -1,0 +1,21 @@
+# secrets
+.env
+.env.*
+!.env.example
+# runtime data (databases, per-account engine data, MT5 terminals)
+data/
+backend/data/
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# frontend
+node_modules/
+frontend/dist/
+frontend/dev-dist/
+# misc
+*.log
+.DS_Store
+test-results/
+playwright-report/
