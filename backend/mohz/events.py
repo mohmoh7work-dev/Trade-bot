@@ -25,7 +25,8 @@ def translate(kind, data, mode="auto"):
                 d["action"], _p(d.get("lots")), _p(d.get("entry")), _p(d.get("sl")), _p(d.get("tp1")),
                 _p(d.get("tp2")), d.get("agreement", 0), d.get("agreement_of", 0), d.get("confidence", 0))
         else:
-            msg = "Council: no trade. %s" % (d.get("reason") or "")
+            why = (d.get("reason") or "").strip()
+            msg = "Council: no trade. %s" % (why[:1].upper() + why[1:])
         return "decision", "info", msg.strip(), {k: d.get(k) for k in ("action", "entry", "sl", "tp1", "tp2", "lots",
                                                                      "confidence", "agreement", "reason")}
     if kind == "signal":
